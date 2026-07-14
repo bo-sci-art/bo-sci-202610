@@ -55,9 +55,9 @@ export function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* 申込ボタン */}
-          {/*
+
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeSGh8sGe47gxGbr9ikMCzr5L-RHMObzyRJo4onLc4fnZEitw/viewform?usp=header"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-block
@@ -67,7 +67,6 @@ export function Hero() {
           >
             ワークショップに申し込む
           </a>
-          */}
 
           {/* 体験ボタン */}
           <a

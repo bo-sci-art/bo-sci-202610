@@ -4,7 +4,7 @@ import { ReviewsCarousel } from './components/ReviewsCarousel';
 import { RecommendedSection } from './components/RecommendedSection';
 import { DemoExperience } from './components/DemoExperience';
 import { WorkshopDetails } from './components/WorkshopDetails';
-// import { FixedApplyButton } from './components/FixedApplyButton'; // 申込リンク削除のため一時停止
+import { FixedApplyButton } from './components/FixedApplyButton';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -19,9 +19,9 @@ export default function App() {
         <DemoExperience />
         <WorkshopDetails />
         <Footer />
-        {/* <FixedApplyButton /> */}
+        <FixedApplyButton />
         {/* 固定ボタンと下部コンテンツの干渉防止 */}
-        {/* <div className="h-20"></div> */}
+        <div className="h-20"></div>
       </div>
     </>
   );
