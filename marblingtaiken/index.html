@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- <link rel="apple-touch-icon" href="logo.png">
+        <link rel="icon" href="logo.png"> -->
+
+        <title>防災×市民科学×アート 体験ツール</title>
+        <meta name="description" content="A WebGL fluid simulation that works in mobile browsers.">
+
+        <!-- <meta property="og:type" content="website">
+        <meta property="og:title" content="Webgl Fluid Simulation">
+        <meta property="og:description" content="A WebGL fluid simulation that works in mobile browsers.">
+        <meta property="og:url" content="https://paveldogreat.github.io/WebGL-Fluid-Simulation/">
+        <meta property="og:image" content="https://paveldogreat.github.io/WebGL-Fluid-Simulation/logo.png"> -->
+
+        <link rel="stylesheet" type="text/css" href="taiken.css"></link>
+
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+            // ga.l=+new Date;
+            // ga('create', 'UA-105392568-1', 'auto');
+            // ga('send', 'pageview');
+        </script>
+        <!-- <script async src="https://www.google-analytics.com/analytics.js"></script> -->
+    </head>
+    <body>
+        <div id="app">
+            <aside id="controls" aria-label="コントロール">
+                <section>
+                    <div class="section-header">
+                        <h2>描画・操作</h2>
+                    </div>
+                    <div class="mode-toggle">
+                        <button id="ctrl-mode-paint" class="mode-btn">絵の具を塗る</button>
+                        <button id="ctrl-mode-fluid" class="mode-btn">絵の具を動かす</button>
+                    </div>
+                </section>
+                <section>
+                    <div class="section-header">
+                        <h2>キャンバス操作</h2>
+                    </div>
+                    <button id="clear-canvas-btn" class="control-btn">やりなおし                        
+                    </button>
+                </section>
+            </aside>
+            <main id="stage">
+                <canvas></canvas>
+            </main>
+        </div>
+        <div id="purpose-message" class="purpose-message">
+            <h3>マーブリング体験をしてみましょう！</h3>
+            <p id="purpose-scroll-hint" class="purpose-scroll-hint">
+                上下にスクロールして続きが読めます
+            </p>
+            <p class="purpose-sub">
+                ① キャンバスに線を描いて、② 絵の具を動かして模様を作ります。
+            </p>
+
+            <div class="purpose-steps">
+                <figure class="purpose-step">
+                <img src="img/purpose-paint.png" alt="キャンバスをなぞって線を描く様子">
+                <figcaption>1. 「絵の具を塗る」<br>で線を描く</figcaption>
+                </figure>
+
+                <div class="purpose-arrow">➜</div>
+
+                <figure class="purpose-step">
+                <img src="img/purpose-fluid.png" alt="線が流体のように広がっている様子">
+                <figcaption>2. 「絵の具を動かす」<br>で模様をつくる</figcaption>
+                </figure>
+            </div>
+
+            <p class="purpose-hint">キャンバスをタップすると体験がスタートします</p>
+        </div>
+        <div id="cta-modal" class="cta-modal" style="display: none;">
+            <div class="cta-content">
+                <button class="cta-close" aria-label="ポップアップを閉じる">×</button>
+                <h2>素敵な色のマーブリングになりましたね 😊</h2>
+                ワークショップでは
+                <p>街の災害リスクと結びつけて作品にします。</p>
+                <button id="cta-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeSGh8sGe47gxGbr9ikMCzr5L-RHMObzyRJo4onLc4fnZEitw/viewform', '_blank')">
+    WSへの申し込みはこちら！
+</button>
+            </div>
+        </div>
+        <div id="landscape-warning" class="landscape-warning" style="display: none;">
+            <div class="warning-content">
+                <img src="rotate-icon.png" alt="Rotate your device" class="rotate-icon">
+                <p>横画面でご利用ください</p>
+            </div>
+        </div>
+        <button id="back-to-home" class="back-to-home">Topに戻る</button>
+        <script src="taiken.js"></script>
+        <script>
+            function enforceLandscape() {
+                const warning = document.getElementById('landscape-warning');
+                if (window.innerHeight > window.innerWidth) {
+                    // 縦画面の場合、警告を表示
+                    warning.style.display = 'flex';
+                } else {
+                    // 横画面の場合、警告を非表示
+                    warning.style.display = 'none';
+                }
+            }
+
+            // 初期化時と画面サイズ変更時にチェック
+            window.addEventListener('resize', enforceLandscape);
+            window.addEventListener('load', enforceLandscape);
+
+            document.getElementById('back-to-home').addEventListener('click', () => {
+    window.location.href = '/bo-sci-2025-lp/'; // トップページのURLを指定
+});
+        </script>
+    </body>
+</html>
