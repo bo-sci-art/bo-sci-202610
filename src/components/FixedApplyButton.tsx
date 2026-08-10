@@ -1,6 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 
-const GOOGLE_FORM_URL = '';
+const GOOGLE_FORM_URL = 'https://forms.gle/w2DcgdoPZJUWjCZm9';
 
 export function FixedApplyButton() {
   return (
