@@ -221,14 +221,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (backToTopButton) {
     backToTopButton.addEventListener("click", () => {
-      window.location.href = "../index.html";
+      window.location.href = "https://bo-sci-art.github.io/bo-sci-202610/";
     });
   }
 
   if (goToWorkshopButton) {
     goToWorkshopButton.addEventListener("click", () => {
-      window.location.href =
-        "https://docs.google.com/forms/d/e/1FAIpQLSeSGh8sGe47gxGbr9ikMCzr5L-RHMObzyRJo4onLc4fnZEitw/viewform?usp=header";
+      window.location.href = "https://forms.gle/GMLvi8CnG1VFogRW8";
     });
   }
 
