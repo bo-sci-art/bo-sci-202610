@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react';
-import img1 from "../images/logoblue.png";
+import img1 from "../images/bo.png";
 import img2 from "../images/fluid.png";
 
 const titleImage = img1;
@@ -45,7 +45,7 @@ export function Hero() {
           <img
             src={titleImage}
             alt="防災×市民科学×アート"
-            className="max-w-xs w-full h-auto"
+            className="max-w-xl w-full h-auto"
           />
         </div>
 

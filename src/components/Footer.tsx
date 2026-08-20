@@ -34,8 +34,9 @@ export function Footer() {
 
             {/* 共催団体 */}
             <h4 className="text-gray-400 mb-2 text-sm font-medium">共催</h4>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-gray-300 text-sm">Tsunashima SST まちづくり運営協議会</span>
+            <div className="space-y-1 mb-4">
+              <p className="text-gray-300 text-sm">Tsunashima SST まちづくり運営協議会</p>
+              <p className="text-gray-300 text-sm">慶應義塾大学 日吉美術研究室</p>
             </div>
 
             {/* 協力団体 */}

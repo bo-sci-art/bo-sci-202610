@@ -1,16 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Clock, Users } from 'lucide-react';
+import { Calendar, Clock, Users, Wallet } from 'lucide-react';
 import { LuPenLine } from "react-icons/lu";
 import { BiCommentDetail } from "react-icons/bi";
 import mapImage1 from '../images/map.png';
 import mapImage2 from '../images/map2.png';
-import mapImageYagami from '../images/map_yagami.png';  // ← 追加
+import mapImageYagami from '../images/yagami_map.png';  // ← 矢上キャンパスの正しい地図に差し替え
 
 interface CurriculumItem {
   title: string;
   time: string;
+  location: string;
   description: string;
   mapImage: string;
 }
@@ -30,22 +31,28 @@ const details = [
   {
     icon: LuPenLine,
     label: '持ち物',
-    value:
-      'タブレットPCをお持ちの方はご持参ください。<br/><span class="text-lg font-semibold">事前申込みで無償貸出も可能です。</span>',
+    value: '飲み物をご持参ください。',
+  },
+  {
+    icon: Wallet,
+    label: '費用',
+    value: '<span class="text-lg font-semibold">無料</span>',
   },
 ];
 
 const curriculum: CurriculumItem[] = [
   {
     title: '第１ターム',
-    time: '10:00-11:45',
+    time: '10:30-12:15',
+    location: '慶應義塾大学矢上キャンパス（創想館 ディスカッションルーム7）',
     description:
-      '場所：</br><span class="text-lg font-semibold">慶應義塾大学矢上キャンパス</span>',
+      '場所：</br><span class="text-lg font-semibold">慶應義塾大学矢上キャンパス（創想館 ディスカッションルーム7）</span><br/><span class="text-sm text-gray-500">※当日案内人がいますので、矢上キャンパスにお越しください</span>',
     mapImage: mapImageYagami, // ⚠️矢上キャンパスの地図に差し替え要
   },
   {
     title: '第２ターム',
     time: '13:30-15:15',
+    location: 'Be ACTO 日吉 まちのスタジオ',
     description:
       '場所：</br><span class="text-lg font-semibold">Be ACTO 日吉<br/>まちのスタジオ</span>',
     mapImage: mapImage1,
@@ -53,6 +60,7 @@ const curriculum: CurriculumItem[] = [
   {
     title: '第３ターム',
     time: '15:30-17:15',
+    location: 'Be ACTO 日吉 まちのスタジオ',
     description:
       '場所：</br><span class="text-lg font-semibold">Be ACTO 日吉<br/>まちのスタジオ</span>',
     mapImage: mapImage1,
@@ -103,26 +111,38 @@ export function WorkshopDetails() {
                     dangerouslySetInnerHTML={{ __html: detail.value }}
                   />
 
-                  {/* ターム一覧＋アクセスボタン */}
-                  <div className="space-y-2">
+                  {/* ターム一覧＋場所＋地図ボタン */}
+                  <div className="space-y-3">
                     {curriculum.map((item) => (
                       <div
                         key={item.title}
-                        className="flex flex-wrap items-center justify-between gap-2 text-sm text-gray-800"
+                        className="border-t border-gray-200 pt-2 first:border-t-0 first:pt-0"
                       >
-                        <span>
-                          {item.title}：{item.time}
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => openPopup(item)}
-                          className="text-orange-600 underline underline-offset-2 hover:text-orange-700"
-                        >
-                          アクセス
-                        </button>
+                        <div className="flex flex-wrap items-baseline justify-between gap-1 text-sm text-gray-800">
+                          <span className="font-semibold">{item.title}</span>
+                          <span className="text-gray-600">{item.time}</span>
+                        </div>
+                        <div className="flex flex-wrap items-center justify-between gap-2 mt-1">
+                          <span className="text-xs text-gray-600">
+                            {item.location}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => openPopup(item)}
+                            className="text-orange-600 underline underline-offset-2 hover:text-orange-700 text-xs whitespace-nowrap"
+                          >
+                            地図
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>
+
+                  {/* 時間帯の選択方法についての案内 */}
+                  <p className="text-xs text-gray-500 mt-3 leading-relaxed">
+                    ①〜③の中から、ご都合のつく時間帯を複数お選びいただけます。<br />
+                    いただいたご希望をもとに調整し、参加時間をあらためてご連絡いたします。
+                  </p>
                 </>
               ) : (
                 // 他のカード（持ち物・対象など）は今まで通り

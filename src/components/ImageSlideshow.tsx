@@ -8,7 +8,7 @@ import { TbDeviceTabletHeart } from "react-icons/tb";
 const images = [
   {
     url: img1,
-    caption: "大雨のとき、二階に非難！危険なら公園へ！",
+    caption: "大雨のとき、二階に避難！危険なら公園へ！",
   },
   {
     url: img2,
